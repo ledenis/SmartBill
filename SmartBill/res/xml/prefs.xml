@@ -2,10 +2,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <CheckBoxPreference
+        android:key="cash"
         android:summary="Whether the result should be rounded"
         android:title="Pay with Cash" />
 
-    <com.me.smartbill.preference.TipPreference android:title="Tipping" />
-    <com.me.smartbill.preference.SplitPreference android:title="Split the bill between" />
+    <com.me.smartbill.preference.TipPreference 
+        android:key="tip"
+        android:title="Tipping" />
+
+    <com.me.smartbill.preference.SplitPreference
+        android:key="split"
+        android:title="Split the bill between" />
 
 </PreferenceScreen>

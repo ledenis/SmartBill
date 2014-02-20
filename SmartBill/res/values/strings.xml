@@ -16,5 +16,6 @@
     <string name="details">Details</string>
     <string name="toPay">Total to pay</string>
     <string name="totalEnd">" persons)"</string>
+    <string name="persons">persons</string>
 
 </resources>
