@@ -1,8 +1,10 @@
-package com.me.smartbill;
+package com.me.smartbill.activity;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.Menu;
+
+import com.me.smartbill.R;
 
 public class MainActivity extends PreferenceActivity {
 
