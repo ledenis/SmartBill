@@ -4,5 +4,8 @@
     <CheckBoxPreference
         android:summary="Whether the result should be rounded"
         android:title="Pay with Cash" />
-    
+
+    <Preference android:title="Tipping" />
+    <Preference android:title="Split the bill between" />
+
 </PreferenceScreen>
