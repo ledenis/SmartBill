@@ -9,5 +9,12 @@
     <string name="billAmount">Amount of the bill</string>
     <string name="payment">Payment</string>
     <string name="calculate">Calculate</string>
+    <string name="moneySymbol">£</string>
+    <string name="totalStart">Total (x </string>
+    <string name="percentSymbol">%</string>
+    <string name="tip">Tip</string>
+    <string name="details">Details</string>
+    <string name="toPay">Total to pay</string>
+    <string name="totalEnd">" persons)"</string>
 
 </resources>
