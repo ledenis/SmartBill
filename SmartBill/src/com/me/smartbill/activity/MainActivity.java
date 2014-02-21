@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.text.InputFilter;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -14,9 +15,12 @@ import android.widget.EditText;
 import com.me.smartbill.R;
 import com.me.smartbill.preference.SplitPreference;
 import com.me.smartbill.preference.TipPreference;
+import com.me.smartbill.utils.DecimalDigitsInputFilter;
 
 public class MainActivity extends PreferenceActivity implements
 		OnSharedPreferenceChangeListener {
+
+	private EditText billText;
 
 	@SuppressWarnings("deprecation")
 	// compatibility with older API
@@ -33,6 +37,11 @@ public class MainActivity extends PreferenceActivity implements
 				.getAll().keySet()) {
 			updateSummary(key);
 		}
+
+		// Init EditText
+		billText = (EditText) findViewById(R.id.bill_text);
+		billText.setFilters(new InputFilter[] {// limit to 2 decimal digits
+		new DecimalDigitsInputFilter(5, 2) });
 	}
 
 	@Override
@@ -50,14 +59,12 @@ public class MainActivity extends PreferenceActivity implements
 	}
 
 	public void calculateClick(View view) {
-		// If the bill editText is empty, focus on it
-		EditText billText = (EditText) findViewById(R.id.bill_text);
 		String billString = billText.getText().toString();
 		if (billString.isEmpty()) {
 			billText.requestFocus();
 			return;
 		}
-		
+
 		// Else, switch to ResultActivity
 		Intent intent = new Intent(this, ResultActivity.class);
 		intent.putExtra("bill", Float.parseFloat(billString));
