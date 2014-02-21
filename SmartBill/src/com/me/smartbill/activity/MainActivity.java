@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 
 import com.me.smartbill.R;
 import com.me.smartbill.preference.SplitPreference;
@@ -50,7 +50,17 @@ public class MainActivity extends PreferenceActivity implements
 	}
 
 	public void calculateClick(View view) {
+		// If the bill editText is empty, focus on it
+		EditText billText = (EditText) findViewById(R.id.bill_text);
+		String billString = billText.getText().toString();
+		if (billString.isEmpty()) {
+			billText.requestFocus();
+			return;
+		}
+		
+		// Else, switch to ResultActivity
 		Intent intent = new Intent(this, ResultActivity.class);
+		intent.putExtra("bill", Float.parseFloat(billString));
 
 		startActivity(intent);
 	}

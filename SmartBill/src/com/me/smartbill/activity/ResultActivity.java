@@ -10,8 +10,7 @@ import com.me.smartbill.preference.SplitPreference;
 import com.me.smartbill.preference.TipPreference;
 
 public class ResultActivity extends Activity {
-	// XXX
-	// private float bill;
+	private float bill;
 	private boolean isCash;
 	private float tip;
 	private int split;
@@ -24,12 +23,15 @@ public class ResultActivity extends Activity {
 
 		retrieveInput();
 
+		System.out.println("bill : " + bill);
 		System.out.println("isCash : " + isCash);
 		System.out.println("tip : " + tip);
 		System.out.println("split : " + split);
 	}
 
 	private void retrieveInput() {
+		bill = getIntent().getFloatExtra("bill", -1);
+		
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
 

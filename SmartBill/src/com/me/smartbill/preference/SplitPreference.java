@@ -1,12 +1,12 @@
 package com.me.smartbill.preference;
 
-import com.me.smartbill.R;
-
 import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.NumberPicker;
+
+import com.me.smartbill.R;
 
 public class SplitPreference extends DialogPreference {
 	
