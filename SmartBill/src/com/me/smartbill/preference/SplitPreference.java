@@ -10,7 +10,7 @@ import android.widget.NumberPicker;
 
 public class SplitPreference extends DialogPreference {
 	
-	public static final int DEFAULT = 1;
+	public static final int DEFAULT = 2;
 	private NumberPicker nbPicker;
 
 	public SplitPreference(Context context, AttributeSet attrs) {
