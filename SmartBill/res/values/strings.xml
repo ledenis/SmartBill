@@ -17,5 +17,6 @@
     <string name="toPay">Total to pay</string>
     <string name="totalEnd">" persons)"</string>
     <string name="persons">persons</string>
+    <string name="tipMaxValue">50</string>
 
 </resources>
