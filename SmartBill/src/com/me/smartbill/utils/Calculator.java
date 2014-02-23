@@ -24,7 +24,7 @@ public class Calculator {
 		}
 
 		// Calculate rounded amount
-		if (isCash) {
+		if (isCash && tip != 0f) {
 			// tipped & rounded amount of the bill, for One person
 			float roundedOne;
 			float rounded; // same, but in total
