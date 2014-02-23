@@ -39,7 +39,7 @@ public class MainActivity extends PreferenceActivity implements
 		}
 
 		// Init EditText
-		billText = (EditText) findViewById(R.id.bill_text);
+		billText = (EditText) findViewById(R.id.billText);
 		billText.setFilters(new InputFilter[] {// limit to 2 decimal digits
 		new DecimalDigitsInputFilter(5, 2) });
 	}

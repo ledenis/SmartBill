@@ -84,7 +84,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/tipText"
+            android:id="@+id/tipValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="123456"

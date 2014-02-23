@@ -4,7 +4,6 @@
     <string name="app_name">SmartBill</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="bill_text">Bill</string>
     <string name="bill">Bill</string>
     <string name="billAmount">Amount of the bill</string>
     <string name="payment">Payment</string>
