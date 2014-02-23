@@ -14,7 +14,7 @@
     <string name="percentSymbol">%</string>
     <string name="tip">Tipping</string>
     <string name="details">Details</string>
-    <string name="toPay">Total to pay</string>
+    <string name="toPay">To pay for 1 person</string>
     <string name="totalEnd">" persons)"</string>
     <string name="persons">persons</string>
     <string name="tipMaxValue">50</string>
