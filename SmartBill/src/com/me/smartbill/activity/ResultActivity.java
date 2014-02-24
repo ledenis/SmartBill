@@ -51,9 +51,13 @@ public class ResultActivity extends Activity {
 	private void updateView(Calculator result) {
 		TextView text;
 		
-		// bill
+		// toPay
 		text = (TextView) findViewById(R.id.toPayText);
 		text.setText("" + result.getToPay());
+		
+		// bill
+		text = (TextView) findViewById(R.id.billText);
+		text.setText("" + bill);
 		
 		// tipping
 		text = (TextView) findViewById(R.id.tipPercentText);
