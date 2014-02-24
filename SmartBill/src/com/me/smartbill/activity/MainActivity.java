@@ -1,5 +1,6 @@
 package com.me.smartbill.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -9,6 +10,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.text.InputFilter;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -56,6 +58,14 @@ public class MainActivity extends PreferenceActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	public void showAboutDialog(MenuItem item) {
+		AlertDialog dialog = new AlertDialog.Builder(this) // builder
+				.setTitle(R.string.about) // title
+				.setMessage(R.string.aboutMsg) // message
+				.create();
+		dialog.show();
 	}
 
 	public void calculateClick(View view) {
