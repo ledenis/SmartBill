@@ -65,9 +65,9 @@ public class ResultActivity extends Activity {
 		
 		// tipping
 		text = (TextView) findViewById(R.id.tipPercentText);
-		text.setText("" + result.getNewTip());
+		text.setText("" + result.getNewTip() * 100);
 		text = (TextView) findViewById(R.id.tipValueText);
-		text.setText("" + result.getNewTip());
+		text.setText("" + result.getNewTipValue());
 		
 		// total
 		text = (TextView) findViewById(R.id.totalText);
