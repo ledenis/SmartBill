@@ -3,7 +3,7 @@
 
     <CheckBoxPreference
         android:key="cash"
-        android:summary="Whether the result should be rounded"
+        android:summary="Whether the result should be rounded\n(if tipping)"
         android:title="Pay with Cash" />
 
     <com.me.smartbill.preference.TipPreference 
