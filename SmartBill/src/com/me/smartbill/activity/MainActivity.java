@@ -90,7 +90,12 @@ public class MainActivity extends PreferenceActivity implements
 		if (key.equals("tip")) {
 			System.out.println("tipprf");
 			TipPreference p = (TipPreference) findPreference(key);
-			p.setSummary("" + prefs.getInt(key, TipPreference.DEFAULT) + " %");
+			int tip = prefs.getInt(key, TipPreference.DEFAULT);
+			if (tip == 0) {
+				p.setSummary(R.string.noTip);
+			} else {
+				p.setSummary("" + tip + " %");
+			}
 		} else if (key.equals("split")) {
 			SplitPreference p = (SplitPreference) findPreference(key);
 			p.setSummary("" + prefs.getInt(key, SplitPreference.DEFAULT) + " "
