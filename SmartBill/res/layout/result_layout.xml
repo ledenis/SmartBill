@@ -33,7 +33,6 @@
             android:id="@+id/toPayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1234.50"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
@@ -67,7 +66,6 @@
             android:id="@+id/billText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123456"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -87,7 +85,6 @@
             android:id="@+id/tipPercentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -114,7 +111,6 @@
             android:id="@+id/tipValueText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123456"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
@@ -133,7 +129,6 @@
             android:id="@+id/splitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -160,7 +155,6 @@
             android:id="@+id/totalText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123456"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
