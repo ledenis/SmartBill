@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.me.smartbill.R;
@@ -34,6 +35,9 @@ public class ResultActivity extends Activity {
 		System.out.println("split : " + split);
 		
 		updateView(result);
+		
+		// Add back button
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	private void retrieveInput() {
@@ -72,6 +76,13 @@ public class ResultActivity extends Activity {
 		// nb persons
 		text = (TextView) findViewById(R.id.splitText);
 		text.setText("" + split);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Action bar's back button
+		onBackPressed();
+		return true;
 	}
 	
 }
