@@ -19,5 +19,8 @@
     <string name="noTip">No tip</string>
     <string name="aboutMsg">Application Smart Bill\nby Denis Le</string>
     <string name="zero">0</string>
+    <string name="round">Round the result</string>
+    <string name="up">Up</string>
+    <string name="down">Down</string>
 
 </resources>
