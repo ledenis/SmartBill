@@ -36,8 +36,9 @@ public class Calculator {
 			System.out.println("rounded " + rounded);
 			if (rounded < bill) {
 				// fallback
-				System.out.println("fallback");
-				rounded = roundCash(tippedOne, true) * split;
+				System.out.println("fallback: forcing round up");
+				roundedOne = roundCash(tippedOne, true);
+				rounded = roundedOne * split;
 				System.out.println("rounded " + rounded);
 			}
 
@@ -56,7 +57,11 @@ public class Calculator {
 
 	private static float roundCash(float bill, boolean roundUp) {
 		float roundBy;
-		if (bill < 2) {
+		if (bill < 0.5f) {
+			roundBy = 0.02f;
+		} else if (bill < 1) {
+			roundBy = 0.05f;
+		} else if (bill < 2) {
 			roundBy = 0.10f;
 		} else if (bill < 5) {
 			roundBy = 0.20f;
