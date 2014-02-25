@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Smart Bill</string>
+    <string name="appName">Smart Bill</string>
     <string name="about">About</string>
-    <string name="hello_world">Hello world!</string>
     <string name="bill">Bill</string>
     <string name="billAmount">Amount of the bill</string>
     <string name="payment">Payment</string>
