@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.me.smartbill.R;
@@ -17,6 +20,7 @@ public class ResultActivity extends Activity {
 	private boolean isCash;
 	private float tip;
 	private int split;
+	private Calculator calculator;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +30,29 @@ public class ResultActivity extends Activity {
 
 		retrieveInput();
 
-		Calculator result = new Calculator()
-				.calculate(bill, isCash, tip, split);
+		calculator = new Calculator();
+		Calculator result = calculator
+				.calculate(bill, isCash, tip, split, true);
 
-		System.out.println("bill : " + bill);
-		System.out.println("isCash : " + isCash);
-		System.out.println("tip : " + tip);
-		System.out.println("split : " + split);
+		// Init radio buttons
+		((RadioGroup) findViewById(R.id.roundGroup))
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(RadioGroup group, int id) {
+						Calculator result;
+						if (id == R.id.upRadio) {
+							result = calculator.calculate(bill, isCash, tip,
+									split, true);
+						} else {
+							result = calculator.calculate(bill, isCash, tip,
+									split, false);
+						}
+						updateView(result, isCash && tip != 0f);
+					}
+				});
 		
-		updateView(result);
-		
+		updateView(result, isCash && tip != 0f);
+
 		// Add back button
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -51,31 +68,35 @@ public class ResultActivity extends Activity {
 		split = prefs.getInt("split", SplitPreference.DEFAULT);
 	}
 
-
-	private void updateView(Calculator result) {
+	private void updateView(Calculator result, boolean isRounding) {
 		TextView text;
-		
+
 		// toPay
 		text = (TextView) findViewById(R.id.toPayText);
 		text.setText("" + result.getToPay());
-		
+
 		// bill
 		text = (TextView) findViewById(R.id.billText);
 		text.setText("" + bill);
-		
+
 		// tipping
 		text = (TextView) findViewById(R.id.tipPercentText);
 		text.setText("" + result.getNewTip() * 100);
 		text = (TextView) findViewById(R.id.tipValueText);
 		text.setText("" + result.getNewTipValue());
-		
+
 		// total
 		text = (TextView) findViewById(R.id.totalText);
 		text.setText("" + result.getTotal());
-		
+
 		// nb persons
 		text = (TextView) findViewById(R.id.splitText);
 		text.setText("" + split);
+
+		// Hide radio buttons if we don't round the result
+		if (!isRounding) {
+			findViewById(R.id.roundLayout).setVisibility(View.GONE);
+		}
 	}
 
 	@Override
@@ -84,5 +105,5 @@ public class ResultActivity extends Activity {
 		onBackPressed();
 		return true;
 	}
-	
+
 }

@@ -12,7 +12,8 @@ public class Calculator {
 	/**
 	 * Call this before the getters
 	 */
-	public Calculator calculate(float bill, boolean isCash, float tip, int split) {
+	public Calculator calculate(float bill, boolean isCash, float tip,
+			int split, boolean roundUp) {
 		float tippedOne; // tipped amount of the bill, for One person
 
 		// Calculate tipped amount
@@ -29,7 +30,7 @@ public class Calculator {
 			float roundedOne;
 			float rounded; // same, but in total
 
-			roundedOne = roundCash(tippedOne, false);
+			roundedOne = roundCash(tippedOne, roundUp);
 			rounded = roundedOne * split;
 			System.out.println("roundedOne " + roundedOne);
 			System.out.println("rounded " + rounded);
@@ -75,23 +76,25 @@ public class Calculator {
 			roundBy = 50f;
 		}
 
+		return roundBy(bill, roundBy, roundUp);
+	}
+
+	private static float roundBy(float bill, float by, boolean roundUp) {
+		float rounded;
 		if (roundUp) {
-			return roundUpBy(bill, roundBy);
+			rounded = (float) (Math.ceil(bill / by) * by);
+		} else {
+			rounded = (float) (Math.floor(bill / by) * by);
 		}
-		return roundBy(bill, roundBy);
-	}
-
-	private static float roundBy(float bill, float by) {
-		float rounded = Math.round(bill / by) * by;
 
 		return rounded;
 	}
 
-	private static float roundUpBy(float bill, float by) {
-		float rounded = (float) (Math.ceil(bill / by) * by);
-
-		return rounded;
-	}
+//	private static float roundUpBy(float bill, float by) {
+//		float rounded = (float) (Math.ceil(bill / by) * by);
+//
+//		return rounded;
+//	}
 
 	// ------------
 	// Getters
